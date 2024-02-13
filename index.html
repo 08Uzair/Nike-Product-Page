@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Nike Cart Page</title>
+</head>
+
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <!-- ===== NAV ===== -->
+        <nav class="nav grid">
+            <div class="nav__toggle" id="nav-toggle">
+                <img src="images/icon-menu.svg" alt="">
+            </div>
+
+            <div>
+                <a class="nav__logo"><img src="images/nike-logo.svg" alt=""></a>
+            </div>
+
+            <!-- ===== NAV LIST ===== -->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="" class="nav__link">MEN</a></li>
+                    <li class="nav__item"><a href="" class="nav__link">WOMEN</a></li>
+                    <li class="nav__item"><a href="" class="nav__link">KIDS</a></li>
+                    <li class="nav__item"><a href="" class="nav__link">CUSTOMIZE</a></li>
+                    <li class="nav__item"><a href="" class="nav__link">SALE</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__shop">
+                <img src="images/shopping-bag.svg" alt="">
+                <div id="notiNum" class="notification">0</div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HOME ===== -->
+    <main class="main grid">
+        <div class="home">
+            <!-- ===== SNEAKER ===== -->
+            <div class="sneaker">
+                <div class="sneaker__figure">
+                </div>
+
+                <div>
+                    <img src="images/NikeAirMaxMotion2.png" alt="" class="sneaker__img shows" color="#A29596">
+                    <img src="images/NikeAirMax Motion2black.png" alt="" class="sneaker__img" color="#111111">
+                </div>
+
+                <div class="sneaker__colors">
+                    <span class="sneaker__color sneaker__colors-one active" primary="#A29596" color="#A29596"></span>
+                    <span class="sneaker__color sneaker__colors-two " primary="#111111" color="#111111"></span>
+                </div>
+            </div>
+
+            <!-- ===== IFORMATION ===== -->
+            <div class="info">
+                <!-- ===== DATA ===== -->
+                <div class="data">
+                    <span class="data__subtitle">Nike</span>
+                    <h1 class="data__title">Air Max Motion 2</h1>
+                    <p class="data__description">They combine breathable mesh without seams for a traditional style.</p>
+                </div>
+
+                <!-- ===== ACTIONS ===== -->
+                <div class="actions">
+                    <!-- ===== SIZE ===== -->
+                    <div class="size">
+                        <h3 class="size__title">Sizes</h3>
+                        <div class="size__content">
+                            <span class="size__tallas active">
+                                8.5
+                            </span>
+                            <span class="size__tallas">
+                                9
+                            </span>
+                            <span class="size__tallas">
+                                9.5
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- ===== QUANTITY ===== -->
+                    <div class="quantity">
+                        <h3 class="quantity__title">Qty.</h3>
+                        <div class="quantity__content">
+                            <span id="dec">-</span>
+                            <span id="int">1</span>
+                            <span id="inc">+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== PRICE ===== -->
+                <div class="price">
+                    <span class="price__title">$99.00</span>
+                    <a href="#" id="addCart" class="price__button">ADD TO CART</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MAIN -->
+    <script src="main.js"></script>
+
+    <script>
+        let sub = document.getElementById('dec')
+        let add = document.getElementById('inc')
+        let num = document.getElementById('int')
+        let cart = document.getElementById('notiNum')
+        let cartbtn = document.getElementById('addCart')
+        let notifi = document.querySelector('.notification')
+
+        let number = 2 ;
+        let elementNum = 0 ;
+
+        function increaseFunction(){
+            number++;
+            num.innerText = number ;
+        }
+        function decreaseFunction(){
+            if (number) {
+                number-- ;
+            }
+          else if (number<1) {
+            number === 1 ;
+          } 
+            num.innerText = number ;
+        }
+        function increaseElement(){
+                elementNum++;
+                cart.innerText = elementNum;
+        }
+
+
+        add.addEventListener('click',increaseFunction)
+        sub.addEventListener('click',decreaseFunction)
+        cartbtn.addEventListener('click', increaseElement)
+
+     
+    </script>
+</body>
+
+</html>
